@@ -5,6 +5,17 @@
     <title>index</title>
 </head>
 <body>
+    <h1>Quiz! # {{ index }}</h1>
+    <h3>{{ quiz }}</h3>
 
+    <!-- action: 다음 동작을 어디에 요청? 뒤에 아무것도 없으면 현재 url에 다시 -->
+    <!-- 4번째 action: 결과 보여주는 창으로 바로 넘어가도록 -->
+    <form action="{{ action }}" method="post">
+        {% csrf_token %} <!-- 보안문제 해결 -->
+        <input type="text" name="answer" id="">
+        <input type="hidden" name="index" value="{{ index }}" />
+        <input type="hidden" name="correct" value="{{ correct }}" />
+        <button type="submit">정답 제출</button>
+    </form>
 </body>
 </html>
